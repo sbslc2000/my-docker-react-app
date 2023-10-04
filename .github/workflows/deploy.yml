@@ -27,10 +27,6 @@ jobs:
 
       - name : Build the Docker image
         run: npm run docker:build
-#        run: docker build -t peteseo/docker-react-app .
-      - name: Push the Docker image
-        run: npm run docker:push
-#        run: docker push peteseo/docker-react-app
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@ebe3476a4ce991d54336935e75e78dd9d86f9408
         with:
