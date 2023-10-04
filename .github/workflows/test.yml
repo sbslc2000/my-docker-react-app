@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branched:
+      - main # action을 trigger할 branch
+    workflow_dispatch: # 수동 실행 옵션 (생략)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # action 스크립트는 ubuntu 환경에서 실행될 것임
+    steps:
+      - name: Checkout source code # 단계별 이름, 구분자로 소스를 가져옴
+      - uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        run: docker build -t sbslc2000/docker-react-app -f Dockerfile.dev .
+      - name: test
+        run: docker run -e CI=true sbslc2000/docker-react-app npm run test -- --coverage
+
+
+

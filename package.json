@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker:build": "docker build --platform linux/amd64 -t peteseo/docker-react-app .",
+    "docker:push" : "docker push peteseo/docker-react-app"
   },
   "eslintConfig": {
     "extends": [
